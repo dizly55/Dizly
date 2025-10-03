@@ -4,7 +4,6 @@ import Header from "./Header";
 import Home from "./Home";
 import Blog from "./Blog";
 import About from "./About";
-import Affiliate from "./Affiliate";
 import ContactUs from "./ContactUs";
 import Signin from "./Signin";   // 👈 Signin page
 import SignUp from "./SignUp";   // 👈 SignUp page (ye missing tha)
