@@ -1,12 +1,9 @@
-// src/Components/Home.js
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+import Footer from "./Footer"; 
 
 function Home() {
   const [active, setActive] = useState("creator");
-  const [selected, setSelected] = useState(null);
-  const navigate = useNavigate();
+  const [selected, setSelected] = useState(null); // clicked box state
 
   const items = [
     { title: "Novels", desc: "Read or download amazing novels." },
@@ -22,7 +19,7 @@ function Home() {
 
   return (
     <div className="bg-dizly-bluebg min-h-screen flex flex-col">
-      {/* Hero */}
+      {/* Hero Section */}
       <div className="pt-28 pb-16 text-center">
         <h1 className="text-5xl md:text-6xl font-extrabold text-dizly-teal">
           Welcome to{" "}
@@ -31,7 +28,7 @@ function Home() {
           </span>
         </h1>
 
-        <h2 className="mt-4 text-3xl font-bold text-dizly-coral tracking-wide">
+        <h2 className="mt-4 text-3xl md:text-3xl font-bold text-dizly-coral tracking-wide">
           Discover. Create. Grow.
         </h2>
 
@@ -45,10 +42,7 @@ function Home() {
         <div className="mt-8 flex justify-center gap-6 flex-wrap">
           {/* Creator Button */}
           <button
-            onClick={() => {
-              setActive("creator");
-              navigate("/signup?role=creator");
-            }}
+            onClick={() => setActive("creator")}
             className={`px-6 py-3 font-semibold rounded-2xl shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${
               active === "creator"
                 ? "bg-dizly-teal text-white"
@@ -58,17 +52,21 @@ function Home() {
             Get Started as a Creator
           </button>
 
-          {/* Explore Tools Button */}
+          {/* Start Exploring Button */}
           <button
-            onClick={() => navigate("/tools")}
-            className="px-6 py-3 font-semibold rounded-2xl shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl bg-white text-dizly-teal hover:bg-dizly-teal hover:text-white"
+            onClick={() => setActive("explore")}
+            className={`px-6 py-3 font-semibold rounded-2xl shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+              active === "explore"
+                ? "bg-dizly-teal text-white"
+                : "bg-white text-dizly-teal hover:bg-dizly-teal hover:text-white"
+            }`}
           >
-            Explore Tools
+            Start Exploring
           </button>
         </div>
       </div>
 
-      {/* Products */}
+      {/* Digital Products Section */}
       <div className="mt-20 text-center px-4 flex-grow">
         <h2 className="text-3xl md:text-4xl font-bold text-dizly-teal mb-2">
           All Your Digital Favorites
@@ -77,6 +75,7 @@ function Home() {
           Explore a wide variety of digital products curated just for you
         </p>
 
+        {/* Product Boxes */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
           {items.map((item, index) => (
             <div
@@ -97,7 +96,7 @@ function Home() {
         </div>
       </div>
 
-      {/* Footer */}
+      {/* Footer at the bottom */}
       <Footer />
     </div>
   );
